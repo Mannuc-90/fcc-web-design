@@ -1,9 +1,7 @@
 ## <center>Basic CSS</center>
 ### Adding styles:
 1.  ***Inline Styles***: using style declaration within an element.
-    ```css
-    <h2 style="color: blue;">CatPhotoApp</h2>
-    ```
+  
     
 2.  Using style in the header section:
     ```css
