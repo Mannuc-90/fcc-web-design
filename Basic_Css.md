@@ -288,3 +288,357 @@
 
     These four values work like a clock: top, right, bottom, left, and will produce the exact same result as using the side-specific margin instructions.
 
+-  ***Use Attribute Selectors to Style Elements*** : 
+There are CSS Selectors you can use to select custom groups of elements to style.
+    
+    <u>CatPhotoApp</u>
+    ```css
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <style>
+    .red-text {
+        color: red;
+    }
+
+    h2 {
+        font-family: Lobster, monospace;
+    }
+
+    p {
+        font-size: 16px;
+        font-family: monospace;
+    }
+
+    .thick-green-border {
+        border-color: green;
+        border-width: 10px;
+        border-style: solid;
+        border-radius: 50%;
+    }
+
+    .smaller-image {
+        width: 100px;
+    }
+
+    .silver-background {
+        background-color: silver;
+    }
+    </style>
+
+    <h2 class="red-text">CatPhotoApp</h2>
+    <main>
+    <p class="red-text">Click here to view more <a href="#">cat photos</a>.</p>
+
+    <a href="#"><img class="smaller-image thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+
+    <div class="silver-background">
+        <p>Things cats love:</p>
+        <ul>
+        <li>cat nip</li>
+        <li>laser pointers</li>
+        <li>lasagna</li>
+        </ul>
+        <p>Top 3 things cats hate:</p>
+        <ol>
+        <li>flea treatment</li>
+        <li>thunder</li>
+        <li>other cats</li>
+        </ol>
+    </div>
+
+    <form action="https://freecatphotoapp.com/submit-cat-photo" id="cat-photo-form">
+        <label><input type="radio" name="indoor-outdoor" checked> Indoor</label>
+        <label><input type="radio" name="indoor-outdoor"> Outdoor</label><br>
+        <label><input type="checkbox" name="personality" checked> Loving</label>
+        <label><input type="checkbox" name="personality"> Lazy</label>
+        <label><input type="checkbox" name="personality"> Energetic</label><br>
+        <input type="text" placeholder="cat photo URL" required>
+        <button type="submit">Submit</button>
+    </form>
+    </main>
+    ```
+    use the [attr=value] attribute selector to style the checkboxes in CatPhotoApp. This selector matches and styles elements with a specific attribute value. 
+    
+    For example, the below code changes the margins of all elements with the attribute type and a corresponding value of radio:
+    ```css
+    [type='radio'] {
+    margin: 20px 0px 20px 0px;
+    }
+    ```
+
+***Understand Absolute versus Relative Units*** : 
+
+The two main types of length units are absolute and relative
+
+-   Absolute units tie to physical units of length. For example, in and mm refer to inches and millimeters, respectively
+-   Relative units, such as em or rem, are relative to another length value. For example, em is based on the size of an element's font. If you use it to set the font-size property itself, it's relative to the parent's font-size.
+    ```css
+    .red-box {
+        background-color: red;
+        margin: 20px 40px 20px 40px;
+        padding:1.5em;
+
+    }
+    ```
+***Style the HTML Body Element***
+
+```css
+body {
+     background-color: black;
+ }
+```
+Example:
+```css
+<style>
+  body {
+    background-color: black;
+    color:green;
+    font-family :monospace;
+  }
+
+</style>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+```
+
+***Styles Overriding Rules***
+-   For multiple classes on same element, the order of class declarations in style matters. he later style overrides the earlier style
+-   If there is 1 class and 1 id on same element, id takes precedence
+-   Inline styles take more importance than class or id
+-   Override All Other Styles by using Important:
+    
+    In many situations, you will use CSS libraries. These may accidentally override your own CSS. So when you absolutely need to be sure that an element has specific CSS, you can use !important.
+    ```css
+    color: red !important;
+    ```
+
+***Use CSS Variables to change several elements at once***
+```css
+Create Custome variable
+--penguin-skin: black;
+
+Use custom variable:
+background: var(--penguin-skin);
+
+```
+
+<u>Penguin</u>
+```css
+<style>
+  .penguin {
+
+    /* Only change code below this line */
+    --penguin-skin: black;
+    --penguin-belly: gray;
+    --penguin-beak: yellow;
+    /* Only change code above this line */
+
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 5%;
+    width: 300px;
+    height: 300px;
+  }
+
+  .penguin-top {
+    top: 10%;
+    left: 25%;
+    background: var(--penguin-skin, gray);
+    width: 50%;
+    height: 45%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .penguin-bottom {
+    top: 40%;
+    left: 23.5%;
+    background: var(--penguin-skin, gray);
+    width: 53%;
+    height: 45%;
+    border-radius: 70% 70% 100% 100%;
+  }
+
+  .right-hand {
+    top: 0%;
+    left: -5%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 120% 30%;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  .left-hand {
+    top: 0%;
+    left: 75%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 30% 120%;
+    transform: rotate(-45deg);
+    z-index: -1;
+  }
+
+  .right-cheek {
+    top: 15%;
+    left: 35%;
+    background: var(--penguin-belly, white);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .left-cheek {
+    top: 15%;
+    left: 5%;
+    background: var(--penguin-belly, white);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .belly {
+    top: 60%;
+    left: 2.5%;
+    background: var(--penguin-belly, white);
+    width: 95%;
+    height: 100%;
+    border-radius: 120% 120% 100% 100%;
+  }
+
+  .right-feet {
+    top: 85%;
+    left: 60%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(-80deg);
+    z-index: -2222;
+  }
+
+  .left-feet {
+    top: 85%;
+    left: 25%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(80deg);
+    z-index: -2222;
+  }
+
+  .right-eye {
+    top: 45%;
+    left: 60%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .left-eye {
+    top: 45%;
+    left: 25%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .sparkle {
+    top: 25%;
+    left: 15%;
+    background: white;
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+  }
+
+  .blush-right {
+    top: 65%;
+    left: 15%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .blush-left {
+    top: 65%;
+    left: 70%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-top {
+    top: 60%;
+    left: 40%;
+    background: var(--penguin-beak, orange);
+    width: 20%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-bottom {
+    top: 65%;
+    left: 42%;
+    background: var(--penguin-beak, orange);
+    width: 16%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  body {
+    background:#c6faf1;
+  }
+
+  .penguin * {
+    position: absolute;
+  }
+</style>
+<div class="penguin">
+  <div class="penguin-bottom">
+    <div class="right-hand"></div>
+    <div class="left-hand"></div>
+    <div class="right-feet"></div>
+    <div class="left-feet"></div>
+  </div>
+  <div class="penguin-top">
+    <div class="right-cheek"></div>
+    <div class="left-cheek"></div>
+    <div class="belly"></div>
+    <div class="right-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="left-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="blush-right"></div>
+    <div class="blush-left"></div>
+    <div class="beak-top"></div>
+    <div class="beak-bottom"></div>
+  </div>
+</div>
+```
+
+***Attach a Fallback value to a CSS Variable***
+When using your variable as a CSS property value, you can attach a fallback value that your browser will revert to if the given variable is invalid.
+
+Note: This fallback is not used to increase browser compatibility, and it will not work on IE browsers. Rather, it is used so that the browser has a color to display if it cannot find your variable.
+```css
+background: var(--penguin-skin, black);
+```
+This will set background to black if your variable wasn't set. Note that this can be useful for debugging.
+
+***Inherit CSS Variables***
+When you create a variable, it is available for you to use inside the selector in which you create it. It also is available in any of that selector's descendants. This happens because CSS variables are inherited, just like ordinary properties.
+
+To make use of inheritance, CSS variables are often defined in the :root element.
+
+:root is a pseudo-class selector that matches the root element of the document, usually the html element. By creating your variables in :root, they will be available globally and can be accessed from any other selector in the style sheet
