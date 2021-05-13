@@ -322,7 +322,7 @@ There are CSS Selectors you can use to select custom groups of elements to style
     }
     </style>
 
-    <h2 class="red-text">CatPhotoApp</h2>
+   
     <main>
     <p class="red-text">Click here to view more <a href="#">cat photos</a>.</p>
 
