@@ -10,9 +10,9 @@ text-align: left; /* (the default) left-aligns the text.*/
 ```
 
 Code Example:
-```css
+```html
 <style>
-  h4 {
+    h4 {
     text-align:center;
   }
   p {
