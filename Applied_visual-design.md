@@ -13,6 +13,8 @@ justify;  causes all lines of text except the last line to meet the left and rig
 
 Code Example:
 <xmp>
+<html>
+<head>
 <style>
   h4 {
     text-align:center;
@@ -33,7 +35,10 @@ Code Example:
   .cardContent {
     padding: 10px;
   }
+
 </style>
+</head>
+<body>
 <div class="fullCard">
   <div class="cardContent">
     <div class="cardText">
@@ -46,4 +51,8 @@ Code Example:
     </div>
   </div>
 </div>
+</body>
+</html>
 </xmp>
+
+## Hello there
