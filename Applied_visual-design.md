@@ -5,16 +5,16 @@
 `text-align:`
 justify;  causes all lines of text except the last line to meet the left and right edges of the line box. 
 
-`text-align:` center; /* centers the text*/
+`text-align: center;`   centers the text
 
-`text-align:` right; /* right-aligns the text*/
+`text-align: right;` right-aligns the text
 
-`text-align:` left; /* (the default) left-aligns the 
+`text-align: left;` (the default) left-aligns the 
 
 Code Example:
 ```html
 <style>
-    h4 {
+  h4 {
     text-align:center;
   }
   p {
