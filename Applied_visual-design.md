@@ -12,7 +12,7 @@ justify;  causes all lines of text except the last line to meet the left and rig
 `text-align: left;` (the default) left-aligns the 
 
 Code Example:
-```html
+```markdown
 <style>
   h4 {
     text-align:center;
